@@ -11,6 +11,7 @@ fi
 # pull latest and run
 docker pull ${IMAGE}
 docker run -d --name ${CONTAINER_NAME} -p 80:5000 --restart unless-stopped \
+  --env-file /home/.env \
   -e DATADOG_API_KEY="${DATADOG_API_KEY:-}" \
   -e SERVICE_NAME="better-demo" \
   ${IMAGE}
