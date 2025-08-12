@@ -1,6 +1,14 @@
+
 import os
 import base64
 from dotenv import load_dotenv
+from flask import Flask, jsonify, render_template, request
+import time
+import logging
+import requests
+
+app = Flask(__name__)
+logging.basicConfig(level=logging.INFO)
 
 # Load .env if present
 load_dotenv()
