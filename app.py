@@ -71,14 +71,6 @@ def demo_update():
         return f"Demo update committed! Message rotated to: {messages[idx]}"
     else:
         return f"Error: {r.text}", 500
-from flask import Flask, jsonify, render_template, request
-import os
-import time
-import logging
-import requests
-
-app = Flask(__name__)
-logging.basicConfig(level=logging.INFO)
 
 DATADOG_API_KEY = os.getenv("DATADOG_API_KEY")
 SERVICE_NAME = os.getenv("SERVICE_NAME", "better-demo-app")
