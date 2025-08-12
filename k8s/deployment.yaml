@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: better-demo-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: better-demo
+  template:
+    metadata:
+      labels:
+        app: better-demo
+    spec:
+      containers:
+        - name: better-demo
+          image: YOUR_DOCKERHUB_USERNAME/better-demo:latest
+          ports:
+            - containerPort: 5000
+          env:
+            - name: DATADOG_API_KEY
+              value: "" # set via secret in production
+            - name: SERVICE_NAME
+              value: "better-demo"

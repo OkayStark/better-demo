@@ -1,0 +1,5 @@
+Welcome to the Better Demo!
+This is a live DevOps pipeline demonstration.
+Every time you trigger the demo, this message will change!
+You are seeing the power of CI/CD in action.
+Thank you for reviewing this project!

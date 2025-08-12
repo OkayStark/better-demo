@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Better — DevOps Assessment Demo</title>
+    <style>
+      body{font-family:system-ui,Segoe UI,Roboto,Arial;margin:48px}
+      .card{border-radius:8px;padding:20px;box-shadow:0 6px 18px rgba(0,0,0,0.08)}
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h1>Better — DevOps Assessment Demo</h1>
+      <p id="main-message">{{ message }}</p>
+      <p>Flask micro-app. Use <code>/status</code> to get JSON status.</p>
+      <button id="btn">Get Status</button>
+      <pre id="out"></pre>
+    </div>
+
+    <script>
+      document.getElementById('btn').addEventListener('click', async () => {
+        const r = await fetch('/status')
+        const j = await r.json()
+        document.getElementById('out').innerText = JSON.stringify(j, null, 2)
+      })
+    </script>
+  </body>
+</html>
